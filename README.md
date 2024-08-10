@@ -18,3 +18,8 @@ Currently, two official plugins are available:
 ## Tailwind CSS
 
 - [https://tailwindcss.com/docs/guides/vite#react] (visit the documentation for more detail to instalation guide and setup for tailwind css.)
+
+## create Components and menu pages
+
+- [Components](https://github.com/Surya079/E-commerce-React/tree/main/src/components)
+- [Pages](https://github.com/Surya079/E-commerce-React/tree/main/src/pages)
