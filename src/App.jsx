@@ -6,7 +6,6 @@ import { Cart } from "./pages/Cart";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Products } from "./pages/products";
-import { Footer } from "./components/Footer";
 
 export default function App() {
   return (
@@ -25,7 +24,6 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
-        <Footer />
       </BrowserRouter>
     </main>
   );
