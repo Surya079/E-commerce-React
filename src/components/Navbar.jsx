@@ -9,7 +9,7 @@ export const Navbar = ({ continerStyles }) => {
         to={"/"}
         className={({ isActive }) => (isActive ? "active_link" : "")}
       >
-        <div className="flex items-start gap-x-1">
+        <div className="flex items-center gap-x-1">
           <MdHomeFilled />
           Home
         </div>
@@ -18,7 +18,7 @@ export const Navbar = ({ continerStyles }) => {
         to={"/mens"}
         className={({ isActive }) => (isActive ? "active_link" : "")}
       >
-        <div className="flex items-start gap-x-1">
+        <div className="flex items-center gap-x-1">
           <MdCategory />
           Men's
         </div>
@@ -27,7 +27,7 @@ export const Navbar = ({ continerStyles }) => {
         to={"/womens"}
         className={({ isActive }) => (isActive ? "active_link" : "")}
       >
-        <div className="flex items-start gap-x-1">
+        <div className="flex items-center gap-x-1">
           <MdShop2 />
           Women's
         </div>
@@ -36,7 +36,7 @@ export const Navbar = ({ continerStyles }) => {
         to={"/kids"}
         className={({ isActive }) => (isActive ? "active_link" : "")}
       >
-        <div className="flex items-start gap-x-1">
+        <div className="flex  items-center gap-x-1">
           <MdContacts />
           Kid's
         </div>

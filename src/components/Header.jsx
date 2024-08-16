@@ -18,7 +18,7 @@ export const Header = () => {
 
   return (
     <div>
-      <header className="fixed top-0 left-0 m-auto w-full bg-white px-6  ring-gray-100 ring-1 z-10">
+      <header className="fixed top-0 left-0 m-auto w-full bg-white px-2  ring-gray-100 ring-1 z-10">
         <div className="px-4 p-3 flex justify-between">
           {/* Logo */}
           <div className="flex items-center">
