@@ -11,7 +11,7 @@ export const Popular = () => {
             {/* Container */}
             <div>
                 {popular.map((item)=>(
-                    <Item key={item.id} id={item.id} />
+                    <Item key={item.id} id={item.id} image={item.image} name={item.name} old_price={item.old_price} new_price={item.new_price} />
                 ))}
             </div>
         </div>
