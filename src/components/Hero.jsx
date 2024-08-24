@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 export const Hero = () => {
   return (
-    <section className="relative bg-[url('../src/assets/shoping-hero.jpg')]   bg-no-repeat bg-cover w-full bg-center h-screen ">
+    <section className="relative bg-[url('../src/assets/shoping-hero.jpg')] bg-no-repeat bg-cover w-full bg-center h-screen">
       <div className=" relative top-32  mx-auto w-auto  ml-16 max-[400px]: max-[400px]:top-20 max-[400px]:m-1 m-1">
         <h1 className="font-bold text-5xl max-[400px]:text-center  max-w-[37rem] max-[400px]:w-full max-[400px]:text-3xl">
           Welcome to Digital shoping at <b>RYGB</b>
