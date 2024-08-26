@@ -14,7 +14,7 @@ const popular = [
   {
     id: 2,
     image: product2,
-    name: "White premium shirt ",
+    name: "dark red kid modern dress",
     old_price: 1000,
     new_price: 799,
   },
@@ -28,7 +28,7 @@ const popular = [
   {
     id: 4,
     image: product4,
-    name: "Checked premium shirt",
+    name: "yellow printed cloth for women",
     old_price: 600,
     new_price: 499,
   },

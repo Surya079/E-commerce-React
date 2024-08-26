@@ -5,9 +5,14 @@ import { Category } from "./pages/Category";
 import { Cart } from "./pages/Cart";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
-import { Products } from "./pages/products";
+import { Products } from "./pages/Products";
 import Footer from "./components/Footer";
 
+// Import Images
+
+import menbanner from "./assets/men-banner.jpg";
+import womenbanner from "./assets/woemn-banner.jpg";
+import kidbanner from "./assets/kids-banner.jpg";
 
 export default function App() {
   return (
@@ -16,12 +21,19 @@ export default function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/mens" element={<Category />} />
-          <Route path="/womens" element={<Category />} />
-          <Route path="/kids" element={<Category />} />
-          <Route path="/products" element={<Products />}>
-            <Route path=":productId" element={<Products />} />
-          </Route>
+          <Route
+            path="/mens"
+            element={<Category Category="men" banner={menbanner} />}
+          />
+          <Route
+            path="/womens"
+            element={<Category Category="womens" banner={womenbanner} />}
+          />
+          <Route
+            path="/kids"
+            element={<Category Category="kids" banner={kidbanner} />}
+          />
+          <Route path="/products/:productId" element={<Products />}></Route>
           <Route path="/cart-page" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
