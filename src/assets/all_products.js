@@ -27,8 +27,97 @@ import product26 from "./products/kids-drs-7.jpg";
 import product27 from "./products/kids-drs-8.jpg";
 import product28 from "./products/kids-drs-9.jpg";
 import product29 from "./products/kids-drs-10.png";
+import product_1 from "./products/men-shirt-4.webp";
+import product_2 from "./products/men-shirt-6.jpg";
+import product_3 from "./products/men-shirt-9.jpg"
+import product_4 from "./products/women-drs-6.png";
+import prodcut_5 from "./products/women-drs-3.jpg";
+import product_6 from "./products/kids-drs-9.jpg";
+import product_11 from "./products/men-shirt-2.jpg";
+import product_12 from "./products/kids-drs-6.jpg";
+import product_13 from "./products/men-shirt-1.png";
+import product_14 from "./products/women-drs-2.jpg";
 
 export const All_products = [
+  {
+    id: 1,
+    Image: product_11,
+    Category: "men",
+    name: "dark light Green shirt ",
+    old_price: 500,
+    new_price: 450,
+  },
+  {
+    id: 2,
+    Image: product_12,
+    Category: "kids",
+    name: "dark red kid modern dress",
+    old_price: 1000,
+    new_price: 799,
+  },
+  {
+    id: 3,
+    Image: product_13,
+    Category: "men",
+    name: "Dark blue shirt men",
+    old_price: 400,
+    new_price: 350,
+  },
+  {
+    id: 4,
+    Image: product_14,
+    Category: "women",
+    name: "yellow printed cloth for women",
+    old_price: 600,
+    new_price: 499,
+  },{
+    id: 5,
+    Image: product_1,
+    Category:"men",
+    name: "dark green men shirt ",
+    old_price: 500,
+    new_price: 450,
+  },
+  {
+    id: 6,
+    Image: product_2,
+    Category:"men",
+    name: "waterblue formal men",
+    old_price: 1000,
+    new_price: 799,
+  },
+  {
+    id: 7,
+    Image: product_3,
+    Category:"men",
+    name: "black printed men shirt",
+    old_price: 400,
+    new_price: 350,
+  },
+  {
+    id: 8,
+    Image: product_4,
+    Category:"women",
+    name: "women office formal gray",
+    old_price: 600,
+    new_price: 499,
+  },
+  {
+    id: 9,
+    Image: prodcut_5,
+    Category:"women",
+    name: "printed black women causal",
+    old_price: 600,
+    new_price: 499,
+  },
+  {
+    id: 10,
+    Image: product_6,
+    Category:"kids",
+    name: "stylish kid compo clothes ",
+    old_price: 600,
+    new_price: 499,
+  },
   {
     id: 11,
     Image :product1,
@@ -271,4 +360,7 @@ export const All_products = [
     new_price: 499,
   },
 ];
-export default All_products;
+
+
+
+

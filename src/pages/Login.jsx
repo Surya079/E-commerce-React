@@ -10,6 +10,7 @@ export const Login = () => {
             type="text"
             placeholder="Your Name"
             className="h-14 w-full  bg-slate-900/5 p-5 outline-none rounded-xl"
+            
           />
           <input
             type="text"

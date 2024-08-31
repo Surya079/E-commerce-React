@@ -1,6 +1,6 @@
 import React from "react";
 import { Item } from "./Item";
-import latest from "../assets/latest";
+import { All_products } from "../assets/all_products";
 
 export const NewCollection = () => {
   return (
@@ -10,11 +10,11 @@ export const NewCollection = () => {
         <hr className="h-[3px] md:w-1/2 mx-auto bg-gradient-to-l from-transparent via-black to-transparent mb-10" />
         {/* Container */}
         <div className="grid grid-cols-1 max-[400px]::grid-cols-2 py-4 md:grid-cols-3 xl:grid-cols-3 xl:justify-between gap-6 ">
-          {latest.map((item) => (
+          {All_products.map((item) => (
             <Item
               key={item.id}
               id={item.id}
-              image={item.image}
+              Image={item.Image}
               name={item.name}
               old_price={item.old_price}
               new_price={item.new_price}

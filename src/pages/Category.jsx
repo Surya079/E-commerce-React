@@ -1,11 +1,9 @@
 import React from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import All_products from "../assets/all_products";
+import { All_products } from "../assets/all_products";
 import { Item } from "../components/Item";
 
 export const Category = ({ Category, banner }) => {
-
-
   return (
     <section className="p-5 m-2 py-12 mx-auto  xl:py-28">
       <div>
@@ -31,7 +29,7 @@ export const Category = ({ Category, banner }) => {
               <Item
                 key={item.id}
                 id={item.id}
-                image={item.Image}
+                Image={item.Image}
                 name={item.name}
                 old_price={item.old_price}
                 new_price={item.new_price}

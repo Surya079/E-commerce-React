@@ -7,7 +7,7 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Products } from "./pages/Products";
 import Footer from "./components/Footer";
-
+import { ScrollTop } from "./components/ScrollTop";
 // Import Images
 
 import menbanner from "./assets/men-banner.jpg";
@@ -18,6 +18,7 @@ export default function App() {
   return (
     <main className="bg-primary text-tertiary">
       <BrowserRouter>
+        <ScrollTop />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
