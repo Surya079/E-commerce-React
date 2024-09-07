@@ -57,7 +57,6 @@ export const ProductDisplay = ({ product }) => {
             onClick={(e) => {
               e.preventDefault();
               addTocart(product.id);
-              alert("added!")
             }}
             className="p-4 bg-black text-white xl:rounded-lg xl:w-[500px] max-[450px]:w-full"
           >

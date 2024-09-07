@@ -21,7 +21,6 @@ export const Header = () => {
 
   const cartCount = Object.values(cartItems).reduce((total, count) => total + count, 0)
 
-  console.log(cartCount);
   
   return (
     <div>

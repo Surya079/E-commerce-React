@@ -11,7 +11,6 @@ const getRandomProducts = (products, count) => {
 export const RelatedProdcuts = () => {
   const randomProducts = useMemo(() => getRandomProducts(All_products, 4), [All_products]);
 
-  console.log(randomProducts);
   
   
   return (
