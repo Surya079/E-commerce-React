@@ -15,6 +15,9 @@ export default {
           90:'#292C27',
 
         },
+        backgroundImage:{
+          hero:"url('./src/assets/shoping-hero.jpg')",
+        },
         gray:{
           10:'#EEEEEE',
           20:'#A2A2A2',
