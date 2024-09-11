@@ -7,12 +7,12 @@ const getRandomProducts = (products, count) => {
   return shuffled.slice(0, count);
 };
 
-
 export const RelatedProdcuts = () => {
-  const randomProducts = useMemo(() => getRandomProducts(All_products, 4), [All_products]);
+  const randomProducts = useMemo(
+    () => getRandomProducts(All_products, 4),
+    [All_products]
+  );
 
-  
-  
   return (
     <section className="bg-primary mt-5">
       <div className="p-5 py-12 mx-auto xl:w-[88%] ">

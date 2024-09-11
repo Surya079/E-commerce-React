@@ -19,9 +19,11 @@ export const Header = () => {
 
   const { cartItems } = useContext(ShopContext);
 
-  const cartCount = Object.values(cartItems).reduce((total, count) => total + count, 0)
+  const cartCount = Object.values(cartItems).reduce(
+    (total, count) => total + count,
+    0
+  );
 
-  
   return (
     <div>
       <header className="fixed top-0 left-0 m-auto w-full bg-white px-2  ring-gray-100 ring-1 z-20">
