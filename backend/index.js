@@ -1,27 +1,31 @@
 import express from "express";
 import bodyParser from "body-parser";
 import env from "dotenv";
-import path from "path";
 import pg from "pg";
 import multer from "multer";
 import cors from "cors";
-import { log } from "console";
+import bcrypt from "bcrypt";
+import passport from "passport";
+import session from "express-session";
+import { Strategy } from "passport-local";
 
-env.config(); // .env Configuration
-const app = express(); // Express app
-const port = process.env.PORT; // Port
+env.config(); // Load .env configuration
+const app = express();
+const port = process.env.PORT || 3000;
+const saltRounds = 10;
 
-// enable cors
+// Enable CORS
 app.use(
   cors({
     origin: "*",
   })
 );
 
-// middleWares
+// Middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
+// PostgreSQL Client
 const db = new pg.Client({
   database: process.env.DATABASE_NAME,
   user: process.env.DATABASE_USER,
@@ -30,6 +34,52 @@ const db = new pg.Client({
   port: process.env.DATABASE_PORT,
 });
 db.connect();
+
+// Session
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "mysecret",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      secure: false,
+      maxAge: 1000 * 60 * 5,
+    },
+  })
+);
+
+// Passport initialization
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Register endpoint
+app.post("/register", async (req, res) => {
+  const { username, email, password, verifyPassword } = req.body;
+});
+
+// Login endpoint
+app.post("/login", async (res, req) => {
+  const email = req.body.email;
+  const password = req.body.password;
+});
+
+// Profile endpoint
+// app.get("/profile", (req, res) => {
+//   if (req.isAuthenticated()) {
+//     return res.json({ message: `Welcome, ${req.user.name}` });
+//   }
+//   res.status(401).json({ message: "Not authenticated" });
+// });
+
+// Logout
+app.get("/logout", (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      return res.status(500).json({ message: "Logout failed" });
+    }
+    res.json({ message: "Logged out successfully" });
+  });
+});
 
 // Get Products
 const getproducts = async () => {
@@ -100,19 +150,7 @@ app.post("/add-products", upload.single("productImage"), async (req, res) => {
   }
 });
 
-// Register user
-
-app.post("/register", async (req, res) => {
-  const { username, email, password, verifyPassword } = req.body;
-  try {
-    console.log({ username, email, password, verifyPassword });
-    res.send({ message: "Successfully Registered" }).status(200);
-  } catch (error) {
-    res.send({ error: "error while register" });
-  }
-});
-
-// Server Config
+// Start server
 app.listen(port, () => {
-  console.log("Server Runs on :", port);
+  console.log("Server running on port", port);
 });

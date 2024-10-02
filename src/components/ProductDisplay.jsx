@@ -6,12 +6,12 @@ import { ShopContext } from "../Context/ShopContext";
 export const ProductDisplay = ({ product }) => {
   const { addTocart, cartItems } = useContext(ShopContext);
 
-  
+  const image_url = "/src/assets" + product?.image?.slice(1);
   return (
     <section className="flex xl:items-center gap-4 ring-1 xl:p-2  pt-0 pb-0  m-5 max-[450px]:flex-col ring-slate-900/5">
       <div className="xl:w-96 mx-xl:5 justify-center max-sm:w-64 flex  border-r-2 align-top xl:p-2 xl:pt-2 xl:pb-2">
         <img
-          src={"/src/assets" + product?.image?.slice(1)}
+          src={product?.image?.startsWith("http") ? product?.image : image_url}
           alt="product"
           className=" pt-0 pb-0 shadow-md p-2 rounded-md shadow-black"
         />

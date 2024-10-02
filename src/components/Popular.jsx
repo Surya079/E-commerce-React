@@ -29,7 +29,7 @@ export const Popular = () => {
             <Item
               key={item.id}
               id={item.id}
-              Image={"/src/assets" + item.image.slice(1)}
+              Image={item.image}
               name={item.name}
               old_price={item.old_price}
               new_price={item.new_price}

@@ -30,7 +30,7 @@ export const Header = () => {
         <div className="px-4 p-3 flex justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link>
+            <Link to={"/"}>
               <img src={Logo} alt="" height={40} width={40} />
             </Link>
           </div>
@@ -78,13 +78,22 @@ export const Header = () => {
                <img src={logout} alt="logutIcon" width={19} height={19} /> Logut
               </NavLink> */}
               <NavLink
-                to={"login"}
+                to={"/login"}
                 className={
                   "bg-yellow-300 ml-2 py-1 h-8 w-20 rounded-2xl gap-x-1 justify-center flex items-center"
                 }
               >
                 <img src={login} alt="UserProfile" width={19} height={19} />
                 login
+              </NavLink>
+              <NavLink
+                to={"/register"}
+                className={
+                  "bg-yellow-300 ml-2 py-1 h-8 w-25 p-3 rounded-2xl gap-x-1 justify-center flex items-center"
+                }
+              >
+                <img src={login} alt="UserProfile" width={19} height={19} />
+                Register
               </NavLink>
             </div>
           </div>

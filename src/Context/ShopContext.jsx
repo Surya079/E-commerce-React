@@ -6,9 +6,10 @@ export const ShopContext = createContext();
 
 const getDefaultCart = (products) => {
   let cart = {};
-  for (let index = 0; index < products.length; index++) {
-    cart[index] = 0;
-  }
+
+  products.forEach((product) => {
+    cart[product.id] = 0;
+  });
   return cart;
 };
 
@@ -22,12 +23,15 @@ const ShopContextProvider = ({ children }) => {
         const response = await axios.get("http://localhost:3000/products");
         setProducts(response.data);
         setCartItem(getDefaultCart(response.data));
+        // console.log(response.data);
       } catch (error) {
         console.log("Error while fetching Products ", error);
       }
     };
     fetchProducts();
   }, []);
+
+  // console.log(cartItems);
 
   const addTocart = (itemId) => {
     if (itemId != undefined) {

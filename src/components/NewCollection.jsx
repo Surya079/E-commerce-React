@@ -28,7 +28,7 @@ export const NewCollection = () => {
             <Item
               key={item.id}
               id={item.id}
-              Image={item.Image}
+              Image={item.image}
               name={item.name}
               old_price={item.old_price}
               new_price={item.new_price}

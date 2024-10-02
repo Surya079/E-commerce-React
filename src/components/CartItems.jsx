@@ -19,22 +19,43 @@ export const CartItems = () => {
           <table className="mx-2">
             <thead className="bg-slate-900/30">
               <tr>
-                <th className="p-1 py-1 max-[450px]:text-[.7rem] border-2">Products</th>
-                <th className="p-1 py-1 max-[450px]:text-[.7rem] border-2">Title</th>
-                <th className="p-1 py-1 max-[450px]:text-[.7rem] border-2">Price</th>
-                <th className="p-1 py-1 max-[450px]:text-[.7rem] border-2">Quantity</th>
-                <th className="p-1 py-1 max-[450px]:text-[.7rem] border-2">Total</th>
-                <th className="p-1 py-1 max-[450px]:text-[.7rem] border-2">Remove</th>
+                <th className="p-1 py-1 max-[450px]:text-[.7rem] border-2">
+                  Products
+                </th>
+                <th className="p-1 py-1 max-[450px]:text-[.7rem] border-2">
+                  Title
+                </th>
+                <th className="p-1 py-1 max-[450px]:text-[.7rem] border-2">
+                  Price
+                </th>
+                <th className="p-1 py-1 max-[450px]:text-[.7rem] border-2">
+                  Quantity
+                </th>
+                <th className="p-1 py-1 max-[450px]:text-[.7rem] border-2">
+                  Total
+                </th>
+                <th className="p-1 py-1 max-[450px]:text-[.7rem] border-2">
+                  Remove
+                </th>
               </tr>
             </thead>
             <tbody className="border-b-2 text-center">
               {cartProducts.map((e) => (
                 <tr key={e.id} className="mt-2 p-2">
                   <td className="flex justify-center max-[450px]:w-12 border p-1">
-                    <img src={"/src/assets"+e.image.slice(1)} alt="product-image" height={43} width={43} />
+                    <img
+                      src={e.image}
+                      alt="product-image"
+                      height={43}
+                      width={43}
+                    />
                   </td>
-                  <td className="max-[450px]:text-[.7rem] border p-1">{e.name}</td>
-                  <td className="max-[450px]:text-[.7rem] border p-1">${e.new_price}</td>
+                  <td className="max-[450px]:text-[.7rem] border p-1">
+                    {e.name}
+                  </td>
+                  <td className="max-[450px]:text-[.7rem] border p-1">
+                    ${e.new_price}
+                  </td>
                   <td className="max-[450px]:text-[.7rem] bg-white border p-1">
                     {cartItems[e.id]}
                   </td>
