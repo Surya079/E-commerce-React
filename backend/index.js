@@ -53,14 +53,16 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Register endpoint
-app.post("/register", async (req, res) => {
-  const { username, email, password, verifyPassword } = req.body;
-});
 
 // Login endpoint
-app.post("/login", async (res, req) => {
-  const email = req.body.email;
-  const password = req.body.password;
+app.post("/login", passport.authenticate("local"), (req, res) => {
+  console.log(req.user);
+
+  if (req.isAuthenticated()) {
+    res.status(200).json({ message: "Login successful", user: req.user });
+  } else {
+    res.status(400).json({ message: "Authentication failed" });
+  }
 });
 
 // Profile endpoint
@@ -148,6 +150,84 @@ app.post("/add-products", upload.single("productImage"), async (req, res) => {
     console.error("Error adding product:", error);
     res.status(500).json({ message: "Server error" });
   }
+});
+app.post("/register", async (req, res) => {
+  const { username, email, password, verifyPassword } = req.body;
+
+  try {
+    const Checkuser = await db.query("SELECT * FROM users where email = $1", [
+      email,
+    ]);
+
+    if (Checkuser.rows.length > 0) {
+      console.log("User akready resgistered");
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const HashedPassword = await bcrypt.hash(verifyPassword, salt);
+
+    const result = await db.query(
+      "INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *",
+      [username, email, HashedPassword]
+    );
+
+    const user = result.rows[0];
+    console.log(user);
+
+    req.login(user, (err) => {
+      if (err) {
+        return err;
+      }
+
+      // Login successful, return user details
+      return res.status(200).json({
+        message: "Registration and login successful",
+        user: user,
+      });
+    });
+  } catch (error) {
+    console.error("Registration error:", error);
+    return res
+      .status(500)
+      .json({ message: "Server error during registration" });
+  }
+});
+
+passport.use(
+  "local",
+  new Strategy(async (email, password, done) => {
+    console.log(email, password);
+
+    try {
+      const result = await db.query("SELECT * FROM users WHERE email = $1", [
+        email,
+      ]);
+
+      if (result.rows.length == 0) {
+        return done(null, false, { message: " incorrect username" });
+      }
+
+      const user = result.rows[0];
+      const match = await bcrypt.compare(password, user.password);
+
+      if (!match) {
+        return done(null, false, { message: "incorrect passowrd" });
+      }
+      // console.log(user);
+
+      return done(null, user);
+    } catch (error) {
+      return done(error);
+    }
+  })
+);
+
+passport.serializeUser((user, done) => {
+  return done(null, user); // Store user id in session
+});
+
+passport.deserializeUser((async, done) => {
+  return done(null, user);
 });
 
 // Start server
