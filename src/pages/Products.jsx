@@ -19,7 +19,7 @@ export const Products = () => {
       <div>
         <ProductHD product={Product} />
         <ProductDisplay product={Product} />
-        <RelatedProdcuts />
+        {/* <RelatedProdcuts /> */}
       </div>
     </section>
   );
